@@ -55,7 +55,7 @@ def main():
     final_df.to_csv(file_path, index=False)
     print(f"\nData successfully saved to {file_path}"
           f"\nA total of {NUM_MUTANTS} mutants have been generated."
-          f"\nThat's a whole lotta mutants!")
+          f"\n\nThat's a whole lotta mutants!")
 
 
 if __name__ == "__main__":
