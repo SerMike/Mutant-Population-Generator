@@ -2,7 +2,7 @@ from collections import defaultdict
 
 # Constants
 NUM_MUTANTS = 500000
-CHUNK_SIZE = 500000
+CHUNK_SIZE = 100000
 
 # Demographic Data
 AGE_GROUPS = ['0-17', '18-34', '35-49', '50-64', '65+']
