@@ -51,9 +51,11 @@ def main():
 
     final_df = pd.concat(chunks, ignore_index=True)
 
-    file_path = 'mutant_population_500000.csv'
+    file_path = 'mutant_population.csv'
     final_df.to_csv(file_path, index=False)
-    print(f"\nData successfully saved to {file_path}. That's a whole lotta mutants!")
+    print(f"\nData successfully saved to {file_path}"
+          f"\nA total of {NUM_MUTANTS} mutants have been generated."
+          f"\nThat's a whole lotta mutants!")
 
 
 if __name__ == "__main__":
