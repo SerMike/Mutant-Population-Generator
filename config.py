@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 # Constants
-NUM_MUTANTS = 1000000
+NUM_MUTANTS = 500000
 CHUNK_SIZE = 100000
 
 # Demographic Data
