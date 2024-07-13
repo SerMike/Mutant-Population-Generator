@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c506ee5822144fe1f4342608e1447011 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c506ee5822144fe1f4342608e1447011" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c506ee5822144fe1f4342608e1447011 = L.map(
+                "map_c506ee5822144fe1f4342608e1447011",
+                {
+                    center: [20.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 2,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_22795a2456f9b1dbdcf3bed7626181b7 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_22795a2456f9b1dbdcf3bed7626181b7.addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+            var heat_map_545010b25b771adcb8cc94ad12903409 = L.heatLayer(
+                [[35.86166, 104.195397, 186914], [20.593684, 78.96288, 179238], [37.09024, -95.712891, 69157], [-0.789275, 113.921327, 35599], [30.375321, 69.345116, 28389], [-14.235004, -51.92528, 27199], [9.081999, 8.675277, 26748], [23.684994, 90.356331, 20860], [61.52401, 105.318756, 18700], [23.634501, -102.552784, 16632], [36.204824, 138.252924, 16385], [12.879721, 121.774017, 14280], [26.820553, 30.802498, 13231], [14.058324, 108.277199, 12626], [38.963745, 35.243322, 10934], [32.427908, 53.688046, 10777], [51.165691, 10.451526, 10646], [15.870032, 100.992541, 9021], [55.378051, -3.435973, 8849], [46.227638, 2.213749, 8297], [-30.559482, 22.937506, 7825], [41.87194, 12.56738, 7746], [-6.369028, 34.888822, 7495], [21.913965, 95.956223, 7062], [-0.023559, 37.906193, 6694], [35.907757, 127.766922, 6536], [4.570868, -74.297333, 6500], [40.463667, -3.74922, 6158], [-38.416097, -63.616672, 5734], [1.373333, 32.290275, 5701], [28.033886, 1.659626, 5641], [48.379433, 31.16558, 5586], [12.862807, 30.217636, 5548], [33.223191, 43.679291, 5294], [51.919438, 19.145136, 4943], [56.130366, -106.346771, 4892], [31.791702, -7.09262, 4667], [23.885942, 45.079162, 4547], [41.377491, 64.585262, 4371], [-9.189967, -75.015152, 4226], [-11.202692, 17.873887, 4130], [4.210484, 101.975766, 4029], [7.946527, -1.023194, 4003], [-18.665695, 35.529562, 3986], [15.552727, 48.516388, 3839], [28.394857, 84.124008, 3700], [6.42375, -66.58973, 3596], [-18.766947, 46.869107, 3444], [7.539989, -5.54708, 3355], [7.369722, 12.354722, 3289], [-25.274398, 133.775136, 3168], [23.69781, 120.960515, 3101], [17.607789, 8.081666, 3013], [7.873054, 80.771797, 2914], [12.238333, -1.561593, 2717], [17.570692, -3.996166, 2611], [48.019573, 66.923684, 2529], [45.943161, 24.96676, 2497], [-13.254308, 34.301525, 2462], [-35.675147, -71.542969, 2440], [-13.133897, 27.849332, 2384], [15.783471, -90.230759, 2380], [52.132633, 5.291266, 2290], [34.802075, 38.996815, 2196], [-1.831239, -78.183406, 2156], [12.565679, 104.990963, 2111], [14.497401, -14.452362, 2098], [15.454166, 18.732207, 2093], [5.152149, 46.199616, 2020], [-19.015438, 29.154857, 1885], [9.945587, -9.696645, 1699], [-1.940278, 29.873888, 1645], [-16.290154, -63.588653, 1589], [50.503887, 4.469936, 1547], [9.30769, 2.315834, 1532], [-3.373056, 29.918886, 1515], [21.521757, -77.781167, 1501], [33.886917, 9.537499, 1498], [18.971187, -72.285215, 1465], [49.817492, 15.472962, 1463], [6.876991, 31.306978, 1419], [18.735693, -70.162651, 1417], [15.199999, -86.241905, 1347], [47.162494, 19.503304, 1330], [60.128161, 18.643501, 1319], [23.424076, 53.847818, 1306], [30.585164, 36.238414, 1305], [40.143105, 47.576927, 1299], [39.074208, 21.824312, 1293], [39.399872, -8.224454, 1279], [38.861034, 71.276093, 1207], [46.818188, 8.227512, 1192], [31.046051, 34.851612, 1189], [53.709807, 27.953389, 1158], [-6.314993, 143.95555, 1156], [44.016521, 21.005859, 1137], [47.516231, 14.550072, 1112], [8.460555, -11.779889, 1080], [8.619543, 0.824782, 1001], [-23.442503, -58.443832, 945], [26.3351, 17.228331, 930], [12.865416, -85.207229, 927], [19.85627, 102.495496, 921], [22.396428, 114.109497, 917], [33.854721, 35.862285, 894], [42.733883, 25.48583, 890], [13.794185, -88.89653, 803], [61.92411, 25.748151, 775], [56.26392, 9.501785, 773], [38.969719, 59.556278, 771], [41.20438, 74.766098, 759], [1.352083, 103.819836, 728], [9.748917, -83.753428, 675], [31.952162, 35.233154, 664], [6.428055, -9.429499, 663], [53.41291, -8.24389, 660], [60.472024, 8.468946, 652], [-0.228021, 15.827659, 650], [6.611111, 20.939444, 648], [21.00789, -10.940835, 644], [48.669026, 19.699024, 641], [21.512583, 55.923255, 636], [-40.900557, 174.885971, 614], [8.537981, -80.782127, 558], [42.315407, 43.356892, 531], [29.31166, 47.481766, 529], [45.1, 15.2, 507], [47.411631, 28.369885, 506], [25.354826, 51.183884, 422], [41.153332, 20.168331, 408], [-22.95764, 18.49041, 398], [43.915886, 17.679076, 392], [15.179384, 39.782334, 378], [55.169438, 23.881275, 377], [40.069099, 45.038189, 377], [46.862496, 103.846656, 369], [-32.522779, -55.765835, 351], [18.109581, -77.297508, 349], [56.879635, 24.603189, 296], [11.803749, -15.180413, 268], [25.930414, 50.637772, 266], [46.151241, 14.995463, 260], [-0.803689, 11.609444, 259], [-22.328474, 24.684866, 247], [41.608635, 21.745275, 239], [13.443182, -15.310139, 236], [-29.609988, 28.233608, 231], [12.984305, -61.287228, 158], [-15.376706, 166.959158, 154], [15.414999, -61.370976, 152], [17.357822, -62.782998, 148], [11.825138, 42.590275, 145], [25.03428, -77.39628, 143], [-4.679574, 55.491977, 143], [42.546245, 1.601554, 142], [-20.348404, 57.552152, 140], [42.708678, 19.37439, 140], [3.202778, 73.22068, 140], [49.815273, 6.129583, 138], [16.002082, -24.013197, 137], [-26.522503, 31.465866, 137], [-13.759029, -172.104629, 137], [0.18636, 6.613081, 136], [-8.874217, 125.727539, 136], [-16.578193, 179.414413, 136], [10.691803, -61.222503, 133], [7.51498, 134.58252, 132], [43.750298, 7.412841, 131], [-3.370417, -168.734039, 130], [-9.64571, 160.156194, 130], [47.166, 9.555373, 129], [41.902916, 12.453389, 128], [13.909444, -60.978893, 128], [7.425554, 150.550812, 128], [64.963051, -19.020835, 128], [43.94236, 12.457777, 127], [17.189877, -88.49765, 127], [35.937496, 14.375416, 127], [7.131474, 171.184478, 123], [55.169438, 23.881275, 122], [-0.522778, 166.931503, 122], [-21.178986, -175.198242, 121], [1.650801, 10.267895, 121], [27.514162, 90.433601, 120], [35.126413, 33.429859, 119], [17.060816, -61.796428, 118], [13.193887, -59.543198, 117], [4.860416, -58.93018, 115], [4.535277, 114.727669, 114], [-7.109535, 177.64933, 109], [3.919305, -56.027783, 108], [-11.875001, 43.872219, 107], [12.262776, -61.604171, 106]],
+                {"blur": 15, "maxZoom": 18, "minOpacity": 0.5, "radius": 25}
+            );
+        
+    
+            heat_map_545010b25b771adcb8cc94ad12903409.addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+            var marker_be16c6873e1e39a76eeb36842bdd2fb2 = L.marker(
+                [35.86166, 104.195397],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_e2498b72bf5baf9a058fe881223aa573 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c2129ddcbcd6e4122de9806a65c96d9a = $(`<div id="html_c2129ddcbcd6e4122de9806a65c96d9a" style="width: 100.0%; height: 100.0%;">China: 186914 mutants</div>`)[0];
+                popup_e2498b72bf5baf9a058fe881223aa573.setContent(html_c2129ddcbcd6e4122de9806a65c96d9a);
+            
+        
+
+        marker_be16c6873e1e39a76eeb36842bdd2fb2.bindPopup(popup_e2498b72bf5baf9a058fe881223aa573)
+        ;
+
+        
+    
+    
+            marker_be16c6873e1e39a76eeb36842bdd2fb2.bindTooltip(
+                `<div>
+                     China
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b7f5bbe76baddc43f2d0e68f4c9fd6e7 = L.marker(
+                [20.593684, 78.96288],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_7977ded7734ec0eae6896c1ff0051bce = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2e11a9b4266bb47fbdc7ffbd98edf1a7 = $(`<div id="html_2e11a9b4266bb47fbdc7ffbd98edf1a7" style="width: 100.0%; height: 100.0%;">India: 179238 mutants</div>`)[0];
+                popup_7977ded7734ec0eae6896c1ff0051bce.setContent(html_2e11a9b4266bb47fbdc7ffbd98edf1a7);
+            
+        
+
+        marker_b7f5bbe76baddc43f2d0e68f4c9fd6e7.bindPopup(popup_7977ded7734ec0eae6896c1ff0051bce)
+        ;
+
+        
+    
+    
+            marker_b7f5bbe76baddc43f2d0e68f4c9fd6e7.bindTooltip(
+                `<div>
+                     India
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6ab255156f0ca67d143e5d6d208e5fd5 = L.marker(
+                [37.09024, -95.712891],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_73a495a0b513729a3c318849094bd124 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4f00fe8c0b5adc4068edc73006c86fdf = $(`<div id="html_4f00fe8c0b5adc4068edc73006c86fdf" style="width: 100.0%; height: 100.0%;">USA: 69157 mutants</div>`)[0];
+                popup_73a495a0b513729a3c318849094bd124.setContent(html_4f00fe8c0b5adc4068edc73006c86fdf);
+            
+        
+
+        marker_6ab255156f0ca67d143e5d6d208e5fd5.bindPopup(popup_73a495a0b513729a3c318849094bd124)
+        ;
+
+        
+    
+    
+            marker_6ab255156f0ca67d143e5d6d208e5fd5.bindTooltip(
+                `<div>
+                     USA
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ce161798c86846df5ca62feb673ae0c9 = L.marker(
+                [-0.789275, 113.921327],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_2826457bad6e5daae5fb29c0e1a6bc25 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d065bd3d865ea36b8fcccd10c7259397 = $(`<div id="html_d065bd3d865ea36b8fcccd10c7259397" style="width: 100.0%; height: 100.0%;">Indonesia: 35599 mutants</div>`)[0];
+                popup_2826457bad6e5daae5fb29c0e1a6bc25.setContent(html_d065bd3d865ea36b8fcccd10c7259397);
+            
+        
+
+        marker_ce161798c86846df5ca62feb673ae0c9.bindPopup(popup_2826457bad6e5daae5fb29c0e1a6bc25)
+        ;
+
+        
+    
+    
+            marker_ce161798c86846df5ca62feb673ae0c9.bindTooltip(
+                `<div>
+                     Indonesia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cf6729edd9c9026c5f9fc4156d1935a4 = L.marker(
+                [30.375321, 69.345116],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_4cf4d82e504e847d337e59baa2da834c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6731e5c8a9644ec11ad5c170dfc0a73f = $(`<div id="html_6731e5c8a9644ec11ad5c170dfc0a73f" style="width: 100.0%; height: 100.0%;">Pakistan: 28389 mutants</div>`)[0];
+                popup_4cf4d82e504e847d337e59baa2da834c.setContent(html_6731e5c8a9644ec11ad5c170dfc0a73f);
+            
+        
+
+        marker_cf6729edd9c9026c5f9fc4156d1935a4.bindPopup(popup_4cf4d82e504e847d337e59baa2da834c)
+        ;
+
+        
+    
+    
+            marker_cf6729edd9c9026c5f9fc4156d1935a4.bindTooltip(
+                `<div>
+                     Pakistan
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_948a481f5014351c73a8dc6d8f0e2c6c = L.marker(
+                [-14.235004, -51.92528],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_908d18db6731e299c8a85a0a2d09cd28 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2ee85c431fc0881d1254f891c57c5308 = $(`<div id="html_2ee85c431fc0881d1254f891c57c5308" style="width: 100.0%; height: 100.0%;">Brazil: 27199 mutants</div>`)[0];
+                popup_908d18db6731e299c8a85a0a2d09cd28.setContent(html_2ee85c431fc0881d1254f891c57c5308);
+            
+        
+
+        marker_948a481f5014351c73a8dc6d8f0e2c6c.bindPopup(popup_908d18db6731e299c8a85a0a2d09cd28)
+        ;
+
+        
+    
+    
+            marker_948a481f5014351c73a8dc6d8f0e2c6c.bindTooltip(
+                `<div>
+                     Brazil
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b07b763a01c597532191e33af1812d99 = L.marker(
+                [9.081999, 8.675277],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_193575db78e01fa3fa52e6c223e8c0fa = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_487e46f1577aded43554fae8074c8bf1 = $(`<div id="html_487e46f1577aded43554fae8074c8bf1" style="width: 100.0%; height: 100.0%;">Nigeria: 26748 mutants</div>`)[0];
+                popup_193575db78e01fa3fa52e6c223e8c0fa.setContent(html_487e46f1577aded43554fae8074c8bf1);
+            
+        
+
+        marker_b07b763a01c597532191e33af1812d99.bindPopup(popup_193575db78e01fa3fa52e6c223e8c0fa)
+        ;
+
+        
+    
+    
+            marker_b07b763a01c597532191e33af1812d99.bindTooltip(
+                `<div>
+                     Nigeria
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_aac11c3ad1c13cc5e0fdf8e0e064fc12 = L.marker(
+                [23.684994, 90.356331],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_34b72893b165e94d343d12cdb3b32c27 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3723066c77aa80459c06e0892725296b = $(`<div id="html_3723066c77aa80459c06e0892725296b" style="width: 100.0%; height: 100.0%;">Bangladesh: 20860 mutants</div>`)[0];
+                popup_34b72893b165e94d343d12cdb3b32c27.setContent(html_3723066c77aa80459c06e0892725296b);
+            
+        
+
+        marker_aac11c3ad1c13cc5e0fdf8e0e064fc12.bindPopup(popup_34b72893b165e94d343d12cdb3b32c27)
+        ;
+
+        
+    
+    
+            marker_aac11c3ad1c13cc5e0fdf8e0e064fc12.bindTooltip(
+                `<div>
+                     Bangladesh
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f9af020695d9cfda42898a142af316ac = L.marker(
+                [61.52401, 105.318756],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_223991b7f4a71f333b73b58bcb762fda = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_66b1b7ab168c761bd07cbc2bc5b88754 = $(`<div id="html_66b1b7ab168c761bd07cbc2bc5b88754" style="width: 100.0%; height: 100.0%;">Russia: 18700 mutants</div>`)[0];
+                popup_223991b7f4a71f333b73b58bcb762fda.setContent(html_66b1b7ab168c761bd07cbc2bc5b88754);
+            
+        
+
+        marker_f9af020695d9cfda42898a142af316ac.bindPopup(popup_223991b7f4a71f333b73b58bcb762fda)
+        ;
+
+        
+    
+    
+            marker_f9af020695d9cfda42898a142af316ac.bindTooltip(
+                `<div>
+                     Russia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a7b853fe0e8a19d5c203cdaac0c53639 = L.marker(
+                [23.634501, -102.552784],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_f1843d42aeb9e6a5d1a36a6e030a38c3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_267ca2f0071ff1dd9c1eeab0528fc113 = $(`<div id="html_267ca2f0071ff1dd9c1eeab0528fc113" style="width: 100.0%; height: 100.0%;">Mexico: 16632 mutants</div>`)[0];
+                popup_f1843d42aeb9e6a5d1a36a6e030a38c3.setContent(html_267ca2f0071ff1dd9c1eeab0528fc113);
+            
+        
+
+        marker_a7b853fe0e8a19d5c203cdaac0c53639.bindPopup(popup_f1843d42aeb9e6a5d1a36a6e030a38c3)
+        ;
+
+        
+    
+    
+            marker_a7b853fe0e8a19d5c203cdaac0c53639.bindTooltip(
+                `<div>
+                     Mexico
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1601ae3eb188c4da9778467b728fb9d2 = L.marker(
+                [36.204824, 138.252924],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_3f4fd9dea1c9c10422a95768a740767a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_77f7c38499b608e7175131dc553979d0 = $(`<div id="html_77f7c38499b608e7175131dc553979d0" style="width: 100.0%; height: 100.0%;">Japan: 16385 mutants</div>`)[0];
+                popup_3f4fd9dea1c9c10422a95768a740767a.setContent(html_77f7c38499b608e7175131dc553979d0);
+            
+        
+
+        marker_1601ae3eb188c4da9778467b728fb9d2.bindPopup(popup_3f4fd9dea1c9c10422a95768a740767a)
+        ;
+
+        
+    
+    
+            marker_1601ae3eb188c4da9778467b728fb9d2.bindTooltip(
+                `<div>
+                     Japan
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_de37fd2960cef0eeabe2889a2551ae90 = L.marker(
+                [12.879721, 121.774017],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_7e31bc4fd23e315b69f3150f99d3a691 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_27c865948edcef6d53408bbd75854ae9 = $(`<div id="html_27c865948edcef6d53408bbd75854ae9" style="width: 100.0%; height: 100.0%;">Philippines: 14280 mutants</div>`)[0];
+                popup_7e31bc4fd23e315b69f3150f99d3a691.setContent(html_27c865948edcef6d53408bbd75854ae9);
+            
+        
+
+        marker_de37fd2960cef0eeabe2889a2551ae90.bindPopup(popup_7e31bc4fd23e315b69f3150f99d3a691)
+        ;
+
+        
+    
+    
+            marker_de37fd2960cef0eeabe2889a2551ae90.bindTooltip(
+                `<div>
+                     Philippines
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1cb0ed64580dae0cc460bb2744e656db = L.marker(
+                [26.820553, 30.802498],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_47b366a11a016e29342286e97324f532 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9438364fc5436648534a3dae1bccb911 = $(`<div id="html_9438364fc5436648534a3dae1bccb911" style="width: 100.0%; height: 100.0%;">Egypt: 13231 mutants</div>`)[0];
+                popup_47b366a11a016e29342286e97324f532.setContent(html_9438364fc5436648534a3dae1bccb911);
+            
+        
+
+        marker_1cb0ed64580dae0cc460bb2744e656db.bindPopup(popup_47b366a11a016e29342286e97324f532)
+        ;
+
+        
+    
+    
+            marker_1cb0ed64580dae0cc460bb2744e656db.bindTooltip(
+                `<div>
+                     Egypt
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ab2346040733dd2eac4455e42b6b3f8b = L.marker(
+                [14.058324, 108.277199],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_27beccdfb686eff2017998d847f975c7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e0d03bf48f41b0d6b5a31a84c972de33 = $(`<div id="html_e0d03bf48f41b0d6b5a31a84c972de33" style="width: 100.0%; height: 100.0%;">Vietnam: 12626 mutants</div>`)[0];
+                popup_27beccdfb686eff2017998d847f975c7.setContent(html_e0d03bf48f41b0d6b5a31a84c972de33);
+            
+        
+
+        marker_ab2346040733dd2eac4455e42b6b3f8b.bindPopup(popup_27beccdfb686eff2017998d847f975c7)
+        ;
+
+        
+    
+    
+            marker_ab2346040733dd2eac4455e42b6b3f8b.bindTooltip(
+                `<div>
+                     Vietnam
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_baf5aa150d7b74ee8181f4e007878d3b = L.marker(
+                [38.963745, 35.243322],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_763e5542f9ad3c901e1917cae4c017f0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4c6548771cd15472e79a298e04e42335 = $(`<div id="html_4c6548771cd15472e79a298e04e42335" style="width: 100.0%; height: 100.0%;">Turkey: 10934 mutants</div>`)[0];
+                popup_763e5542f9ad3c901e1917cae4c017f0.setContent(html_4c6548771cd15472e79a298e04e42335);
+            
+        
+
+        marker_baf5aa150d7b74ee8181f4e007878d3b.bindPopup(popup_763e5542f9ad3c901e1917cae4c017f0)
+        ;
+
+        
+    
+    
+            marker_baf5aa150d7b74ee8181f4e007878d3b.bindTooltip(
+                `<div>
+                     Turkey
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9257484ca41879a91efd3b31c6d69f2d = L.marker(
+                [32.427908, 53.688046],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_9b2bb0286e747e8afdb97251dc69d0bb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3a849be0a767990faefd0a2a271b4141 = $(`<div id="html_3a849be0a767990faefd0a2a271b4141" style="width: 100.0%; height: 100.0%;">Iran: 10777 mutants</div>`)[0];
+                popup_9b2bb0286e747e8afdb97251dc69d0bb.setContent(html_3a849be0a767990faefd0a2a271b4141);
+            
+        
+
+        marker_9257484ca41879a91efd3b31c6d69f2d.bindPopup(popup_9b2bb0286e747e8afdb97251dc69d0bb)
+        ;
+
+        
+    
+    
+            marker_9257484ca41879a91efd3b31c6d69f2d.bindTooltip(
+                `<div>
+                     Iran
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_40c441422f4fdc13c058a24f6bfa83cc = L.marker(
+                [51.165691, 10.451526],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_78955e30956a1516c17ef2c65bc75bc0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4fde1f392dd24da72b6301d13910894d = $(`<div id="html_4fde1f392dd24da72b6301d13910894d" style="width: 100.0%; height: 100.0%;">Germany: 10646 mutants</div>`)[0];
+                popup_78955e30956a1516c17ef2c65bc75bc0.setContent(html_4fde1f392dd24da72b6301d13910894d);
+            
+        
+
+        marker_40c441422f4fdc13c058a24f6bfa83cc.bindPopup(popup_78955e30956a1516c17ef2c65bc75bc0)
+        ;
+
+        
+    
+    
+            marker_40c441422f4fdc13c058a24f6bfa83cc.bindTooltip(
+                `<div>
+                     Germany
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d5acc091a975538a84b4ecb42740e7e5 = L.marker(
+                [15.870032, 100.992541],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_8519358605757bac4efb2692a4111b80 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_589956b49efd109f31b6ba86b5acb08f = $(`<div id="html_589956b49efd109f31b6ba86b5acb08f" style="width: 100.0%; height: 100.0%;">Thailand: 9021 mutants</div>`)[0];
+                popup_8519358605757bac4efb2692a4111b80.setContent(html_589956b49efd109f31b6ba86b5acb08f);
+            
+        
+
+        marker_d5acc091a975538a84b4ecb42740e7e5.bindPopup(popup_8519358605757bac4efb2692a4111b80)
+        ;
+
+        
+    
+    
+            marker_d5acc091a975538a84b4ecb42740e7e5.bindTooltip(
+                `<div>
+                     Thailand
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_980a5b9538fde3cc5372dee95f1bd9a9 = L.marker(
+                [55.378051, -3.435973],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_fc12f1b5456181665c15411c8adc7f6e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5235dfb67f672ec73d507fbdbac2fd53 = $(`<div id="html_5235dfb67f672ec73d507fbdbac2fd53" style="width: 100.0%; height: 100.0%;">UK: 8849 mutants</div>`)[0];
+                popup_fc12f1b5456181665c15411c8adc7f6e.setContent(html_5235dfb67f672ec73d507fbdbac2fd53);
+            
+        
+
+        marker_980a5b9538fde3cc5372dee95f1bd9a9.bindPopup(popup_fc12f1b5456181665c15411c8adc7f6e)
+        ;
+
+        
+    
+    
+            marker_980a5b9538fde3cc5372dee95f1bd9a9.bindTooltip(
+                `<div>
+                     UK
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_75c145c4cbce99e0211259f916b7bf33 = L.marker(
+                [46.227638, 2.213749],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_f6eb70a22e3bed3796d4b2f3b1fb5e87 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c7554b74d9e0f1777e8b71d15d9c563b = $(`<div id="html_c7554b74d9e0f1777e8b71d15d9c563b" style="width: 100.0%; height: 100.0%;">France: 8297 mutants</div>`)[0];
+                popup_f6eb70a22e3bed3796d4b2f3b1fb5e87.setContent(html_c7554b74d9e0f1777e8b71d15d9c563b);
+            
+        
+
+        marker_75c145c4cbce99e0211259f916b7bf33.bindPopup(popup_f6eb70a22e3bed3796d4b2f3b1fb5e87)
+        ;
+
+        
+    
+    
+            marker_75c145c4cbce99e0211259f916b7bf33.bindTooltip(
+                `<div>
+                     France
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bbe192e0a09d9e2eff25be8d0139274b = L.marker(
+                [-30.559482, 22.937506],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_06fdc4b9ea1ccbb46abd490da93ffa82 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_eba9e0088b52468c266b6ca8bce5eb76 = $(`<div id="html_eba9e0088b52468c266b6ca8bce5eb76" style="width: 100.0%; height: 100.0%;">South Africa: 7825 mutants</div>`)[0];
+                popup_06fdc4b9ea1ccbb46abd490da93ffa82.setContent(html_eba9e0088b52468c266b6ca8bce5eb76);
+            
+        
+
+        marker_bbe192e0a09d9e2eff25be8d0139274b.bindPopup(popup_06fdc4b9ea1ccbb46abd490da93ffa82)
+        ;
+
+        
+    
+    
+            marker_bbe192e0a09d9e2eff25be8d0139274b.bindTooltip(
+                `<div>
+                     South Africa
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_92f6368a65d09f0ed4cdc47a49f6ca62 = L.marker(
+                [41.87194, 12.56738],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_7e8b99df13719a1e0dbab3c52acceeb6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9ef25ef3ecaae34dfc6b4cfd8c184740 = $(`<div id="html_9ef25ef3ecaae34dfc6b4cfd8c184740" style="width: 100.0%; height: 100.0%;">Italy: 7746 mutants</div>`)[0];
+                popup_7e8b99df13719a1e0dbab3c52acceeb6.setContent(html_9ef25ef3ecaae34dfc6b4cfd8c184740);
+            
+        
+
+        marker_92f6368a65d09f0ed4cdc47a49f6ca62.bindPopup(popup_7e8b99df13719a1e0dbab3c52acceeb6)
+        ;
+
+        
+    
+    
+            marker_92f6368a65d09f0ed4cdc47a49f6ca62.bindTooltip(
+                `<div>
+                     Italy
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0ee08a599bfa09a7423ac75a9900b0e8 = L.marker(
+                [-6.369028, 34.888822],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_8549caa918e29066dc74ef504e735cca = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_28a227f7aacae8f27dd096f152af103b = $(`<div id="html_28a227f7aacae8f27dd096f152af103b" style="width: 100.0%; height: 100.0%;">Tanzania: 7495 mutants</div>`)[0];
+                popup_8549caa918e29066dc74ef504e735cca.setContent(html_28a227f7aacae8f27dd096f152af103b);
+            
+        
+
+        marker_0ee08a599bfa09a7423ac75a9900b0e8.bindPopup(popup_8549caa918e29066dc74ef504e735cca)
+        ;
+
+        
+    
+    
+            marker_0ee08a599bfa09a7423ac75a9900b0e8.bindTooltip(
+                `<div>
+                     Tanzania
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a5892f9804f735a683587350904c7aff = L.marker(
+                [21.913965, 95.956223],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_41363abefc3a06a2beb4138cb888fac2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2f68fb1b7097f6e9571cd146c021ced9 = $(`<div id="html_2f68fb1b7097f6e9571cd146c021ced9" style="width: 100.0%; height: 100.0%;">Myanmar: 7062 mutants</div>`)[0];
+                popup_41363abefc3a06a2beb4138cb888fac2.setContent(html_2f68fb1b7097f6e9571cd146c021ced9);
+            
+        
+
+        marker_a5892f9804f735a683587350904c7aff.bindPopup(popup_41363abefc3a06a2beb4138cb888fac2)
+        ;
+
+        
+    
+    
+            marker_a5892f9804f735a683587350904c7aff.bindTooltip(
+                `<div>
+                     Myanmar
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_89901228f3e59bc0bc578827ad7e11a0 = L.marker(
+                [-0.023559, 37.906193],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_914f34e42190d21d071ee23f846544f4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ef093899f880f05d1c68ec81d63f7eb2 = $(`<div id="html_ef093899f880f05d1c68ec81d63f7eb2" style="width: 100.0%; height: 100.0%;">Kenya: 6694 mutants</div>`)[0];
+                popup_914f34e42190d21d071ee23f846544f4.setContent(html_ef093899f880f05d1c68ec81d63f7eb2);
+            
+        
+
+        marker_89901228f3e59bc0bc578827ad7e11a0.bindPopup(popup_914f34e42190d21d071ee23f846544f4)
+        ;
+
+        
+    
+    
+            marker_89901228f3e59bc0bc578827ad7e11a0.bindTooltip(
+                `<div>
+                     Kenya
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ad32a6ee23734ec154dbbf57ba4a3d69 = L.marker(
+                [35.907757, 127.766922],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_79f0569301396dcd52a5bedd230546d2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7db49010231d886def0ac8a723c42b29 = $(`<div id="html_7db49010231d886def0ac8a723c42b29" style="width: 100.0%; height: 100.0%;">South Korea: 6536 mutants</div>`)[0];
+                popup_79f0569301396dcd52a5bedd230546d2.setContent(html_7db49010231d886def0ac8a723c42b29);
+            
+        
+
+        marker_ad32a6ee23734ec154dbbf57ba4a3d69.bindPopup(popup_79f0569301396dcd52a5bedd230546d2)
+        ;
+
+        
+    
+    
+            marker_ad32a6ee23734ec154dbbf57ba4a3d69.bindTooltip(
+                `<div>
+                     South Korea
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_759de50120d30cb1234dcafe7d907c9f = L.marker(
+                [4.570868, -74.297333],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_103bf1ec64197c4ddabcb82605514a6c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a41b098d030b35272e322628a920a847 = $(`<div id="html_a41b098d030b35272e322628a920a847" style="width: 100.0%; height: 100.0%;">Colombia: 6500 mutants</div>`)[0];
+                popup_103bf1ec64197c4ddabcb82605514a6c.setContent(html_a41b098d030b35272e322628a920a847);
+            
+        
+
+        marker_759de50120d30cb1234dcafe7d907c9f.bindPopup(popup_103bf1ec64197c4ddabcb82605514a6c)
+        ;
+
+        
+    
+    
+            marker_759de50120d30cb1234dcafe7d907c9f.bindTooltip(
+                `<div>
+                     Colombia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_47ba8551693dc1e0c23c15c87f21b50e = L.marker(
+                [40.463667, -3.74922],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_08a83a6c917fcb2dd6f0159bc7819b37 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0a2d82d22e700177cbd23c363d29c336 = $(`<div id="html_0a2d82d22e700177cbd23c363d29c336" style="width: 100.0%; height: 100.0%;">Spain: 6158 mutants</div>`)[0];
+                popup_08a83a6c917fcb2dd6f0159bc7819b37.setContent(html_0a2d82d22e700177cbd23c363d29c336);
+            
+        
+
+        marker_47ba8551693dc1e0c23c15c87f21b50e.bindPopup(popup_08a83a6c917fcb2dd6f0159bc7819b37)
+        ;
+
+        
+    
+    
+            marker_47ba8551693dc1e0c23c15c87f21b50e.bindTooltip(
+                `<div>
+                     Spain
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_90f94a242787c95b1dfffc8b4f33796e = L.marker(
+                [-38.416097, -63.616672],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_fa329511e1b2bdff57cc1b0c86099cfd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6887765b0d136ee7c26266f18bbca314 = $(`<div id="html_6887765b0d136ee7c26266f18bbca314" style="width: 100.0%; height: 100.0%;">Argentina: 5734 mutants</div>`)[0];
+                popup_fa329511e1b2bdff57cc1b0c86099cfd.setContent(html_6887765b0d136ee7c26266f18bbca314);
+            
+        
+
+        marker_90f94a242787c95b1dfffc8b4f33796e.bindPopup(popup_fa329511e1b2bdff57cc1b0c86099cfd)
+        ;
+
+        
+    
+    
+            marker_90f94a242787c95b1dfffc8b4f33796e.bindTooltip(
+                `<div>
+                     Argentina
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_81147a77c2e1239485c1145d1bb58f7b = L.marker(
+                [1.373333, 32.290275],
+                {}
+            ).addTo(map_c506ee5822144fe1f4342608e1447011);
+        
+    
+        var popup_fd1b9d2a6f7e5b594b42ffbce691e30a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ef5c728d41f8b487ae23fefe007ef9a8 = $(`<div id="html_ef5c728d41f8b487ae23fefe007ef9a8" style="width: 100.0%; height: 100.0%;">Uganda: 5701 mutants</div>`)[0];
+                popup_fd1b9d2a6f7e5b594b42ffbce691e30a.setContent(html_ef5c728d41f8b487ae23fefe007ef9a8);
+            
+        
+
+        marker_81147a77c2e1239485c1145d1bb58f7b.bindPopup(popup_fd1b9d2a6f7e5b594b42ffbce691e30a)
+        ;
+
+        
+    
+    
+            marker_81147a77c2e1239485c1145d1bb58f7b.bindTooltip(
+                `<div>
+                     Uganda
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

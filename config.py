@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 # Constants
-NUM_MUTANTS = 500000
+NUM_MUTANTS = 1000000
 CHUNK_SIZE = 100000
 
 # Demographic Data
@@ -285,7 +285,7 @@ LANGUAGE_WEIGHTS = [0.7, 0.25, 0.04, 0.009, 0.001]
 COUNTRY_POPULATIONS = {
     'China': 1439,
     'India': 1380,
-    'USA': 331,
+    'USA': 531,
     'Indonesia': 273,
     'Pakistan': 220,
     'Brazil': 212,
