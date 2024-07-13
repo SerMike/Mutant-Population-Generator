@@ -1,7 +1,7 @@
 import pandas as pd
 import folium
 from folium.plugins import HeatMap
-from config import COUNTRY_POPULATIONS, TOTAL_POPULATION
+
 
 # Load the data
 print("Loading data...")
@@ -237,7 +237,7 @@ for _, row in top_countries.iterrows():
         ).add_to(m)
 
 # Save the map
-m.save("mutant_population_heatmap.html")
+m.save("index.html")
 
 print("\nHeatmap has been generated and saved as 'mutant_population_heatmap.html'"
       "\nDone!")
