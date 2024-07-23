@@ -41,7 +41,7 @@ The Mutant Population Generator is a tool designed to simulate the migration of 
 - `index.html`: HTML file to display the visualized data.
 
 ## Contributing
-Contributions are welcome! Please fork the repository and submit a pull request.
+Currently still working on base project.
 
 ## License
 This project is licensed under the MIT License.
