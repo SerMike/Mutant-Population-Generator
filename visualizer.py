@@ -237,7 +237,7 @@ for _, row in top_countries.iterrows():
         ).add_to(m)
 
 # Save the map
-m.save("index.html")
+m.save("mutant_population_heatmap.html")
 
 print("\nHeatmap has been generated and saved as 'mutant_population_heatmap.html'"
       "\nDone!")
