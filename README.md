@@ -7,6 +7,7 @@ The Mutant Population Generator is a tool designed to simulate the migration of 
 - **Population Generation:** Create a fictional mutant population with varied attributes.
 - **Migration Simulation:** Simulate the migration of mutants to Krakoa.
 - **Data Visualization:** Visualize the population distribution and migration patterns.
+- **JSON Data Export:** Generate and save mutant population data in JSON format.
 
 ## Installation
 1. Clone the repository:
@@ -32,16 +33,18 @@ The Mutant Population Generator is a tool designed to simulate the migration of 
    python visualizer.py
    ```
 3. View the results in `index.html`.
+4. The generated mutant population data can also be found in `synthetic_mutant_data.json`.
 
 ## Files
 - `mutant_generator.py`: Script to generate the mutant population.
 - `visualizer.py`: Script to visualize the population data.
 - `config.py`: Configuration file for the generator.
 - `mutant_population.csv`: Generated mutant population data.
+- `synthetic_mutant_data.json`: JSON file containing the generated mutant population data.
 - `index.html`: HTML file to display the visualized data.
 
 ## Contributing
-Currently still working on base project.
+Currently still working on optimizing generator performance. Currently generates in a csv file. Working on JSON export.
 
 ## License
 This project is licensed under the MIT License.
