@@ -1,10 +1,10 @@
 import random
 import numpy as np
 import pandas as pd
-from demographics_config import AGE_GROUPS, AGE_WEIGHTS, SEX, SEX_WEIGHTS, GENDER_IDENTITY, GENDER_IDENTITY_WEIGHTS
-from mutant_abilities_config import ABILITIES, WEIGHTS_DICT, WEIGHTS
-from countries_config import COUNTRIES, COUNTRY_WEIGHTS, LANGUAGE_WEIGHTS
-from occupations_config import OCCUPATIONS, OCCUPATION_WEIGHTS
+from configs.demographics_config import AGE_GROUPS, AGE_WEIGHTS, SEX, SEX_WEIGHTS, GENDER_IDENTITY, GENDER_IDENTITY_WEIGHTS
+from configs.mutant_abilities_config import ABILITIES, WEIGHTS_DICT, WEIGHTS
+from configs.countries_config import COUNTRIES, COUNTRY_WEIGHTS, LANGUAGE_WEIGHTS
+from configs.occupations_config import OCCUPATIONS, OCCUPATION_WEIGHTS
 
 
 # Constants
