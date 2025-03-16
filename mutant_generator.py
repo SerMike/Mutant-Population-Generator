@@ -71,7 +71,7 @@ def main():
         # Generate in chunks for large datasets
         final_df = generate_in_chunks()
 
-    file_path = 'mutant_population.csv'
+    file_path = 'data/mutant_population.csv'
     final_df.to_csv(file_path, index=False)
     print(f"\nData successfully saved to {file_path}"
           f"\nA total of {TOTAL_MUTANTS} mutants have been generated."
