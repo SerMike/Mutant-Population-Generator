@@ -1,13 +1,13 @@
-# Occupations
-OCCUPATION_CATEGORIES = {
-    'Very Common': 25,
-    'Common': 15,
-    'Moderately Common': 8,
-    'Uncommon': 4,
-    'Rare': 2,
-    'Very Rare': 1
-}
+# Occupations Configuration
+# This file contains occupation data and their associated weights for the mutant population generator
 
+from configs.constants import OCCUPATION_DISTRIBUTION
+
+# Occupation Categories and their weights
+# Higher values mean more common occupations
+OCCUPATION_CATEGORY_WEIGHTS = OCCUPATION_DISTRIBUTION
+
+# Categorized Occupations
 CATEGORIZED_OCCUPATIONS = {
     'Very Common': [
         "Teacher", "Nurse", "Retail Sales Associate", "Office Clerk", "Customer Service Representative",
@@ -41,9 +41,17 @@ CATEGORIZED_OCCUPATIONS = {
     ]
 }
 
+# Flatten occupations list for easy access
 OCCUPATIONS = [occupation for category in CATEGORIZED_OCCUPATIONS.values() for occupation in category]
 
-OCCUPATION_WEIGHTS = []
+# Create a dictionary mapping each occupation to its weight
+OCCUPATION_WEIGHTS_DICT = {}
 for category, occupations in CATEGORIZED_OCCUPATIONS.items():
-    OCCUPATION_WEIGHTS.extend([OCCUPATION_CATEGORIES[category]] * len(occupations))
-  
+    for occupation in occupations:
+        OCCUPATION_WEIGHTS_DICT[occupation] = OCCUPATION_CATEGORY_WEIGHTS[category]
+
+# Generate raw weights list in the same order as OCCUPATIONS
+_raw_occupation_weights = [OCCUPATION_WEIGHTS_DICT[occupation] for occupation in OCCUPATIONS]
+
+# Normalize weights to sum to 1 for np.random.choice
+OCCUPATION_WEIGHTS = [weight / sum(_raw_occupation_weights) for weight in _raw_occupation_weights]

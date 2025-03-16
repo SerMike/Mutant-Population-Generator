@@ -1,6 +1,11 @@
-from collections import defaultdict
+# Countries and Languages Configuration
+# This file contains country and language data and their associated weights for the mutant population generator
 
-# Countries and Languages
+from collections import defaultdict
+from configs.constants import LANGUAGE_DISTRIBUTION
+
+# Countries and their associated languages
+# Default language is English for any country not explicitly listed
 COUNTRIES = defaultdict(lambda: ['English'])
 COUNTRIES.update({
     'China': ['Mandarin', 'Cantonese', 'English'],
@@ -110,8 +115,14 @@ COUNTRIES.update({
     'Sudan': ['Arabic', 'English'],
 })
 
+# Language probability weights by position in the language list
+# For example, for a country with 3 languages, the first language has 70% probability,
+# the second has 25% probability, and the third has 4% probability
+# These weights should already sum to 1 (0.7 + 0.25 + 0.04 + 0.009 + 0.001 = 1)
+LANGUAGE_POSITION_WEIGHTS = LANGUAGE_DISTRIBUTION
 
 # Country population data (2021 estimates, millions)
+# These values are used to calculate the probability of a mutant being from each country
 COUNTRY_POPULATIONS = {
     'China': 1439,
     'India': 1380,
@@ -308,6 +319,17 @@ COUNTRY_POPULATIONS = {
     'Vatican City': 1,
 }
 
-LANGUAGE_WEIGHTS = [0.7, 0.25, 0.04, 0.009, 0.001]
+# Calculate total world population for weight normalization
 TOTAL_POPULATION = sum(COUNTRY_POPULATIONS.values())
-COUNTRY_WEIGHTS = {country: population / TOTAL_POPULATION for country, population in COUNTRY_POPULATIONS.items()}
+
+# Create a dictionary mapping each country to its weight based on population
+# Higher population means higher probability of a mutant being from that country
+COUNTRY_WEIGHTS_DICT = {country: population / TOTAL_POPULATION 
+                        for country, population in COUNTRY_POPULATIONS.items()}
+
+# List of all countries for easy access
+COUNTRY_LIST = list(COUNTRY_POPULATIONS.keys())
+
+# Generate weights list in the same order as COUNTRY_LIST
+# These weights should already sum to 1 since they're normalized by TOTAL_POPULATION
+COUNTRY_WEIGHTS = [COUNTRY_WEIGHTS_DICT[country] for country in COUNTRY_LIST]

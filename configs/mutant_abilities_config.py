@@ -1,4 +1,12 @@
+# Mutant Abilities Configuration
+# This file contains mutant ability data and their associated weights for the mutant population generator
+
 from collections import defaultdict
+from configs.constants import ABILITY_DISTRIBUTION
+
+# Ability Categories and their weights
+# Higher values mean more common abilities
+ABILITY_CATEGORY_WEIGHTS = ABILITY_DISTRIBUTION
 
 # Mutant Abilities
 ABILITIES = [
@@ -104,9 +112,7 @@ ABILITIES = [
     "Time Travel: Moving through time."
 ]
 
-# Ability Weights
-WEIGHTS_DICT = defaultdict(lambda: 5)  # Default weight is 5 (uncommon)
-
+# Abilities categorized by rarity
 COMMON_ABILITIES = [
     "Super Strength: Enhanced physical strength.",
     "Super Speed: Enhanced speed and reflexes.",
@@ -149,13 +155,22 @@ OMEGA_ABILITIES = [
     "Omnipotence: Unlimited power."
 ]
 
-for power in COMMON_ABILITIES:
-    WEIGHTS_DICT[power] = 10
+# Create a dictionary mapping each ability to its weight based on category
+ABILITY_WEIGHTS_DICT = defaultdict(lambda: ABILITY_CATEGORY_WEIGHTS['Uncommon'])  # Default is Uncommon
 
-for power in RARE_ABILITIES:
-    WEIGHTS_DICT[power] = 2
+# Assign weights based on categories
+for ability in COMMON_ABILITIES:
+    ABILITY_WEIGHTS_DICT[ability] = ABILITY_CATEGORY_WEIGHTS['Common']
 
-for power in OMEGA_ABILITIES:
-    WEIGHTS_DICT[power] = 1
+for ability in RARE_ABILITIES:
+    ABILITY_WEIGHTS_DICT[ability] = ABILITY_CATEGORY_WEIGHTS['Rare']
 
-WEIGHTS = [WEIGHTS_DICT[power] for power in ABILITIES]
+for ability in OMEGA_ABILITIES:
+    ABILITY_WEIGHTS_DICT[ability] = ABILITY_CATEGORY_WEIGHTS['Omega']
+
+# Generate raw weights list in the same order as ABILITIES
+_raw_ability_weights = [ABILITY_WEIGHTS_DICT[ability] for ability in ABILITIES]
+
+# Normalize weights to sum to 1 for np.random.choice
+# Note: We don't need to normalize in the generator script anymore
+ABILITY_WEIGHTS = [weight / sum(_raw_ability_weights) for weight in _raw_ability_weights]
