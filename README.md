@@ -1,26 +1,26 @@
 # Mutant Population Generator
 
-This project generates and analyzes a diverse population of mutants with various abilities, demographics, and characteristics. The system is designed to be highly configurable and produces visualizations of the data.
+This project generates and analyzes a diverse population of mutants with various abilities, demographics, and characteristics. The system is designed to be configurable and produces a heatmap visualization of the data.
 
 ## Project Structure
 
 ```
 Mutant-Population-Generator/
-├── configs/                  # Configuration files
-│   ├── constants.py         # Global settings and constants
-│   ├── demographics_config.py    # Age, sex, and gender settings
-│   ├── mutant_abilities_config.py    # Mutant powers and their rarity
-│   ├── occupations_config.py    # Occupation categories and weights
-│   ├── countries_config.py      # Country data and language settings
-│   └── README.md               # Configuration documentation
-├── data/                    # Generated data files
-│   └── mutant_population.csv    # Main output file
-├── visualizations/          # Visualization scripts and output
-│   ├── country_heatmap.py      # Country distribution visualization
-│   ├── mutant_population_heatmap.html    # Interactive heatmap output
-│   ├── index.html              # Main visualization dashboard
-│   └── visualizer.py           # General visualization utilities
-└── mutant_generator.py      # Main generator script
+├── configs/                                # Configuration files
+│   ├── constants.py                        # Global settings and constants
+│   ├── demographics_config.py              # Age, sex, and gender settings
+│   ├── mutant_abilities_config.py          # Mutant powers and their rarity
+│   ├── occupations_config.py               # Occupation categories and weights
+│   ├── countries_config.py                 # Country data and language settings
+│   └── README.md                           # Configuration documentation
+├── data/                                   # Generated data files
+│   └── mutant_population.csv               # Main output file
+├── visualizations/                         # Visualization scripts and output
+│   ├── country_heatmap.py                  # Country distribution visualization
+│   ├── mutant_population_heatmap.html      # Interactive heatmap output
+│   ├── index.html                          # Main visualization dashboard
+│   └── visualizer.py                       # General visualization utilities
+└── mutant_generator.py                     # Main generator script
 ```
 
 ## Features
